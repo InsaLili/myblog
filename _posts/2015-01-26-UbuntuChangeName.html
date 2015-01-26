@@ -1,0 +1,51 @@
+---
+layout: default
+title: Change username and hostname in Ubuntu terminal
+---
+
+<h2>{{ page.title }}</h2>
+<p>
+	Change the hostname:
+</p>
+<p>
+	1. sudo nano /etc/hostname
+	---Change the <oldHostname> to <newHostname>
+</p>
+<p>
+	2. sudo nano /etc/hosts
+	---Change the <oldHostname> to <newHostname>
+</p>
+<p>
+	3. sudo service hostname restart
+</p>
+<p>
+	Change the username:
+</p>
+<p>
+	1. Ctrl+Alt+F1
+</p>
+<p>
+	2. log in using your former username and password
+</p>
+<p>
+	3. sudo passwd root
+	---set a password for the "root" account
+</p>
+<p>
+	4. exit
+	---log out
+</p>
+<p>
+	5. log in using "root" and the new password
+</p>
+<p>
+	6. usermod -l <newname> -d /home/<newname> -m <oldname>
+</p>
+<p>
+	7. exit
+	---log out
+</p>
+<p>
+	8. Ctrl+Alt+F7
+</p>
+<p>{{ page.date | date_to_string }}</p>
