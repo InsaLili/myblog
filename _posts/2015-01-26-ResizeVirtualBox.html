@@ -1,0 +1,47 @@
+---
+layout: default
+title: Resize your virtual machine 
+---
+
+<h2>{{ page.title }}</h2>
+<p>
+	When the virtual machine is running out of space, here is the instruction to resize it:
+</p>
+<p>
+	(Mac OS & VirtualBox)
+</p>
+<p>
+	1. $ VBoxManage clonehd <path to the original drive> <path of the copy>
+	explain: clone the existing drive, just in case...
+</p>
+<p>
+	2. If the drive is in .vmdk format, do the following to change it to .vdi: 
+	$ VBoxManage clonehd "source.vmdk" "cloned.vdi" --format vdi
+</p>
+<p>
+	3. $ VBoxManage modifyhd "cloned.vdi" --resize 40960
+	explain: resize to 40GB
+
+</p>
+<p>
+	4. Restart VituralBox, click on Storage-->drive-->hard disk, select the new drive which just be created
+</p>
+<p>
+	5. Now the new drive has been added, we have enough space for the virtual machine. But the virtual system doesn't know that it has extra space now. The next step is to start the virtual machine, install gparted.
+</p>
+<p>
+	6. Extend the unallocated space to ext4 partition.
+</p>
+<p>
+	7. If the partition can't be resized, here is the solution:  
+</p>
+<p>
+	Turn of the swap partition ($ sudo /sbin/swapoff -a), delete it.
+</p>
+<p>
+	Now the Ubuntu partition can be resized.
+</p>
+<p>
+	Turn on the swap partition ($ sudo /sbin/swapon -a).
+</p>
+<p>{{ page.date | date_to_string }}</p>
