@@ -12,6 +12,8 @@ title: Resize your virtual machine
 </p>
 <p>
 	1. $ VBoxManage clonehd <path to the original drive> <path of the copy>
+</p>
+<p>
 	explain: clone the existing drive, just in case...
 </p>
 <p>
@@ -20,8 +22,9 @@ title: Resize your virtual machine
 </p>
 <p>
 	3. $ VBoxManage modifyhd "cloned.vdi" --resize 40960
+</p>
+<p>	
 	explain: resize to 40GB
-
 </p>
 <p>
 	4. Restart VituralBox, click on Storage-->drive-->hard disk, select the new drive which just be created
